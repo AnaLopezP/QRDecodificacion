@@ -5,20 +5,19 @@ texto = "Vm0wd2QyUXlWa2hWV0doVllteEtWMVl3WkRSWFJteFZVbTVrVmxKc2NIcFhhMk0xVmpGS2R
 def descifrartexto(texto):
   b64.b64decode(texto)
   #b64.b64encode(input("Ingrese el texto a codificar: "))
-
+   
 def desc_img(img):
-  image = open('deer.gif', 'rb')
-  image_read = image.read()
-  image_64_encode = b64.encodestring(image_read)
-  image_64_decode = b64.decodestring(image_64_encode) 
-  image_result = open('deer_decode.gif', 'wb') # create a writable image and write the decoding result
-  image_result.write(image_64_decode)
-  image_result.close()
-  return image_result
+    with open(img, 'rb') as image:
+        image_read = image.read()
+        image_64_encode = b64.b64encode(image_read)
+        image_64_decode = b64.b64decode(image_64_encode)
+        with open('decoded_' + img, 'wb') as image_result:
+            image_result.write(image_64_decode)
+    return image_result
 
 if __name__ == '__main__':
   for i in range(8):
-    result_img = desc_img(flag.png)
+    result_img = desc_img("flag.png")
     print(result_img)
     resultado_letra = descifrartexto(texto)
     print(resultado_letra)
