@@ -1,4 +1,5 @@
 # QRDecodificacion
+https://github.com/AnaLopezP/QRDecodificacion
 
 Texto sacado del QR raw: 
 
